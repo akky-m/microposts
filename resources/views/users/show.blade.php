@@ -14,7 +14,8 @@
             @include('user_follow.follow_button', ['user' => $user])
         </aside>
         <div class="col-sm-8">
-            @include('users.navtabs', ['user' => $user])
+            @include('users.navtabs', ['user' => $user, 'micropost' => $microposts, 'data' => $data])
+            @include('favorite.favorite_button', ['micropost' => $microposts])
             @if (Auth::id() == $user->id)
                 {!! Form::open(['route' => 'microposts.store']) !!}
                     <div class="form-group">

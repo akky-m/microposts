@@ -15,6 +15,8 @@
                             {!! Form::submit('Delete', ['class' => 'btn btn-danger btn-sm']) !!}
                         {!! Form::close() !!}
                     @endif
+                     @if (Auth::id() != $micropost->user_id)
+                    @endif
                 </div>
             </div>
         </li>

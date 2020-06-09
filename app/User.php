@@ -23,6 +23,12 @@ class User extends Authenticatable
         return $this->hasMany(Micropost::class);
     }
     
+    //ユーザーに紐付くお気に入りを取得
+    public function favorites()
+    {
+        return $this->belongsToMany(User::class, 'favorites', 'user_id', 'micropost_id')->withTimestamps();
+    }
+    
     public function followings()
     {
         return $this->belongsToMany(User::class, 'user_follow', 'user_id', 'follow_id')->withTimestamps();
@@ -79,5 +85,9 @@ class User extends Authenticatable
         $follow_user_ids[] = $this->id;
         return Micropost::whereIn('user_id', $follow_user_ids);
     }
+
+
+    
+
 }
     
