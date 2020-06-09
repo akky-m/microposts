@@ -19,7 +19,7 @@
         </a>
     </li>
     <li class="nav-item">
-                <a href="@if(!empty($micropost)){{ route('users.favorites', ['id' => $micropost['id']]) }}@endif" class="nav-link
+        <a href="@if(!empty($micropost)){{ route('users.favorites', ['id' => $micropost['id']]) }}@endif" class="nav-link
     {{ Request::is('microposts/*/favorites') ? 'active' : '' }}">Favorite_article
      <span class="badge badge-secondary">@if(!empty($count_favorites)){{ $count_favorites }@endif</span>
         </a>

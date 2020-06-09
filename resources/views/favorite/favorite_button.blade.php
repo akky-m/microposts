@@ -1,7 +1,6 @@
 @if (Auth::id() != $micropost['user_id'])
-    {{--@if (Auth::micropost()->is_registering($micropost->id))
-    @if (Auth::micropost()->is_registering($micropost['user_id'])
-        {!! Form::open(['route' => ['micropost.unregister', $micropost->id], 'method' => 'delete']) !!}
+    {{--@if (Auth::micropost()->is_registering($micropost['user_id'])
+     {!! Form::open(['route' => ['micropost.unregister', $micropost->id], 'method' => 'delete']) !!}
             {!! Form::submit('Unregister', ['class' => "btn btn-danger btn-block"]) !!}
         {!! Form::close() !!}
     @else
