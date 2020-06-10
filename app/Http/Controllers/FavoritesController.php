@@ -9,15 +9,15 @@ class FavoritesController extends Controller
 {
    public function store(Request $request, $id)
     {
-        \Auth::micropost()->register($id);
+        $user = \Auth::user();
+        $user->favorite($id);
         return back();
     }
 
     public function destroy($id)
     {
-        \Auth::micropost()->unregister($id);
+        $user = \Auth::user();
+        $user->unfavorite($id);
         return back();
     }
-    
-
 }

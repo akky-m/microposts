@@ -12,7 +12,6 @@
                 </div>
             </div>
             @include('user_follow.follow_button', ['user' => $user])
-            // @include('favorite.favorite_button', ['micropost' => $microposts])
         </aside>
         <div class="col-sm-8">
             @include('users.navtabs', ['user' => $user, 'micropost' => $microposts, 'data' => $data])

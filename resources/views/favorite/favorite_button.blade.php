@@ -1,11 +1,9 @@
-@if (Auth::id() != $micropost['user_id'])
-    @if (Auth::micropost()->is_registering($micropost->id))
-     {!! Form::open(['route' => ['micropost.unregister', $micropost->id], 'method' => 'delete']) !!}
-            {!! Form::submit('Unregister', ['class' => "btn btn-danger btn-block"]) !!}
-        {!! Form::close() !!}
-    @else
-        {!! Form::open(['route' => ['micropost.register', $micropost->id]]) !!}
-            {!! Form::submit('Register', ['class' => "btn btn-primary btn-block"]) !!}
-        {!! Form::close() !!}
-    @endif
+@if (Auth::user()->checkIfMicropostIsMyFavorite($micropost['id']))
+    {!! Form::open(['route' => ['favorites.unregister', $micropost['id']], 'method' => 'delete']) !!}
+        {!! Form::submit('Unfavorite', ['class' => "btn btn-danger btn-sm"]) !!}
+    {!! Form::close() !!}
+@else
+    {!! Form::open(['route' => ['favorites.register', $micropost['id']]]) !!}
+        {!! Form::submit('Favorite', ['class' => "btn btn-primary btn-sm"]) !!}
+    {!! Form::close() !!}
 @endif
